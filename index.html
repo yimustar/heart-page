@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>爱心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        .heart-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .heart {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: #e94560;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(233, 69, 96, 0.6);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #e94560;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -60px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 60px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: rotate(-45deg) scale(1);
+            }
+            15% {
+                transform: rotate(-45deg) scale(1.15);
+            }
+            30% {
+                transform: rotate(-45deg) scale(1);
+            }
+            45% {
+                transform: rotate(-45deg) scale(1.15);
+            }
+        }
+
+        .text {
+            color: #eee;
+            font-size: 24px;
+            letter-spacing: 8px;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #e94560;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.6;
+            }
+            80% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-200px) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { left: -80px; top: 50px; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 80px; top: 80px; animation-delay: 0.5s; }
+        .particle:nth-child(3) { left: -50px; top: 120px; animation-delay: 1s; }
+        .particle:nth-child(4) { left: 100px; top: 30px; animation-delay: 1.5s; }
+        .particle:nth-child(5) { left: -100px; top: 100px; animation-delay: 2s; }
+        .particle:nth-child(6) { left: 60px; top: 150px; animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <div class="heart"></div>
+        <div class="text">LOVE</div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+</body>
+</html>
